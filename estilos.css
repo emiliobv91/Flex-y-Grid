@@ -1,0 +1,138 @@
+/*.body{
+display:
+static	Posicionamiento estático. Utiliza el orden natural de los elementos HTML.
+relative	Posicionamiento relativo. Los elementos se mueven ligeramente en base a su posición estática.
+absolute	Posicionamiento absoluto. Los elementos se colocan en base a un contenedor padre.
+fixed	Posicionamiento fijo. Idem al absoluto, pero aunque hagamos scroll no se mueve.
+sticky	Posicionamiento fijo con desplazamiento («pegajoso»). Muy usado para pegar elementos a una zona.
+
+
+top
+bottom
+left
+right
+
+position: relative
+z-index	Coloca un elemento en el eje de profundidad, colocándolo debajo o encima de otros elementos.
+os elementos con un número más alto estarán por encima de otros elementos, y los elementos con un número más bajo permanecerán ocultos detrás de otros elementos
+(solo en posicionamiento diferente a static)
+}
+
+position:absolute
+busca el elemento contenedor padre y verifica si tiene posicionamiento(relative o absolute) si fuera posicionamiento estatico buscara el siguiente elemento padre con posicionamiento no estático.
+o llegar al body
+
+position: fixed;
+top: 0;
+*/
+.contenedor{
+    display: grid;
+    grid-template-columns: auto 1fr 0.5fr;
+    grid-template-rows: 1fr auto 1fr 1fr;
+    grid-template-areas:
+        "header header header"
+        "menu menu menu"
+        "sidebar noticia formulario"
+        "footer footer footer";
+        height: 100vh;
+}
+
+.header{
+    grid-area: header;
+    display: flex;
+    background-color:#294F6D;
+    border: 1px solid #042037;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    align-items: center; /* Centra los elementos verticalmente */
+    border-radius: 5px;
+}
+
+.header a{
+    text-decoration: none; /*quitar subrayado de <a>*/
+    color: #718EA4;
+}
+.header h1 {
+    display: flex; /*hay que hacer un contenedor flex para poder centrar la imagen al parrago con align-items*/
+    align-items: center; /* Alinea verticalmente la imagen con el texto */
+    overflow: hidden; /* Asegura que el párrafo no se sobreponga a la imagen */
+    text-align: center; /*justifica el texto <p> */
+    padding: 20px;
+}
+
+.header img{
+    float: left;
+    margin-right: 5px;
+    }
+
+
+.menu{
+    grid-area: menu;
+    background-color: #718EA4;
+    margin-top: 1px;
+    border: 1px solid #123652;
+    border-radius: 5px;
+    align-items:center;
+
+}
+
+.menu ul {
+    display:flex;
+    list-style-type: none;
+    justify-content: space-around; /*Distribuye con espacio igual entre los elementos, sin espacio extra en los extremos.*/
+    align-items: center;
+}
+
+
+
+.menu a{
+    text-decoration: none;
+}
+
+.sidebar{
+    grid-area: sidebar;
+    margin-top: 5px;
+    background-color: #565695;
+    border: 1px solid #09093B;
+    border-radius: 5px;
+}
+.sidebar ol{
+    padding-left: 5px;
+    padding-right: 15px;
+    text-decoration: none;
+    list-style-type: none;
+
+}
+.noticia{
+    grid-area: noticia;
+    border: 1px solid #123652;
+    border-radius: 5px;
+    margin: 5px;
+    overflow: hidden;
+}
+
+.noticia h2{
+    text-align: center;
+}
+
+.noticia p img{
+    float:left;
+    margin-right: 10px;
+    'margin-bottom: 100px;
+}
+
+.noticia p{
+    display: flex; /*hay que hacer un contenedor flex para poder centrar la imagen al parrago con align-items*/
+    align-items: center; /* Alinea verticalmente la imagen con el texto */
+    overflow: hidden; /* Asegura que el párrafo no se sobreponga a la imagen */
+    text-align: justify; /*justifica el texto <p> */
+    padding: 20px;
+}
+.formulario{
+    grid-area: formulario;
+
+
+}
+.footer{
+    grid-area: footer;
+    text-align: center;
+}
